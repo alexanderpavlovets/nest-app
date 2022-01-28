@@ -1,6 +1,8 @@
-### Task management app with Nestjs stack 
+# Task management app with Nestjs stack 
 
-# This project uses yarn, please consider it.
+### This project uses yarn, please consider it.
+
+
 
 ## Description
 
