@@ -2,7 +2,8 @@
 
 ### This project uses yarn, please consider it.
 
-
+## Notes: 
+- Class validator package https://github.com/typestack/class-validator is used here with pipes to validate DTOs
 
 ## Description
 
