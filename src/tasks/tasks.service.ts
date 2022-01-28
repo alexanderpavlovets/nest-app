@@ -58,6 +58,8 @@ export class TasksService {
   }
 
   deleteTaskById(id: string): void {
+    // 2 loops + next row is just for error 404. Don't do like that :)
+    this.getTaskById(id);
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
