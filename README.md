@@ -4,6 +4,15 @@
 
 ## Notes: 
 - Class validator package https://github.com/typestack/class-validator is used here with pipes to validate DTOs
+- You should have Docker and pgAdmin installed 
+- run Postgress via Docker 
+```
+docker run --name postgres-nest -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres // initial download and start
+docker container stop postgres-nest // stop
+docker container start postgres-nest // start
+docker container rm postgres-nest // remove
+```
+- "pg" in dependencies - just a driver for TypeORM and Postgres
 
 ## Description
 
