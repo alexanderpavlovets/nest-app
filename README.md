@@ -14,6 +14,7 @@ docker container rm postgres-nest // remove
 ```
 - "pg" in dependencies - just a driver for TypeORM and Postgres
 - TypeORM Active Record vs Data Mapper approaches - https://github.com/typeorm/typeorm/blob/master/docs/active-record-data-mapper.md
+- TypeORM repository.delete - not checking if entity exists, repository.remove - checks that entity exists so seems 2 requests - not good.
 
 ## Description
 
