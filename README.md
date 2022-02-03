@@ -7,11 +7,12 @@
 - You should have Docker and pgAdmin installed 
 - run Postgress via Docker 
 ```
-docker run --name postgres-nest -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres // initial download and start
+docker run --name postgres-nest -p 5433:5432 -e POSTGRES_PASSWORD=postgres -d postgres // initial download and start
 docker container stop postgres-nest // stop
 docker container start postgres-nest // start
 docker container rm postgres-nest // remove
 ```
+- First time DB usage: create it via PG admin. Install PGAdmin, Create a server in it to run on port 5433, Create a "nest-app" db in it
 - "pg" in dependencies - just a driver for TypeORM and Postgres
 - TypeORM Active Record vs Data Mapper approaches - https://github.com/typeorm/typeorm/blob/master/docs/active-record-data-mapper.md
 - TypeORM repository.delete - not checking if entity exists, repository.remove - checks that entity exists so seems 2 requests - not good.
@@ -51,17 +52,3 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
