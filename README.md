@@ -6,42 +6,59 @@
 - Class validator package https://github.com/typestack/class-validator is used here with pipes to validate DTOs
 - You should have Docker and pgAdmin installed 
 - run Postgress via Docker 
-```
+```bash
 docker run --name postgres-nest -p 5433:5432 -e POSTGRES_PASSWORD=postgres -d postgres // initial download and start
 docker container stop postgres-nest // stop
 docker container start postgres-nest // start
 docker container rm postgres-nest // remove
 ```
-- First time DB usage: create it via PG admin. Install PGAdmin, Create a server in it to run on port 5433, Create a "nest-app" db in it
+- First time DB usage: create it via PG admin. Install PGAdmin, Create a server in it to run on port 5433, Default "postgres" db name is used. Create a "your-name-db" db in it if needed, and change in in ormconfig
 - "pg" in dependencies - just a driver for TypeORM and Postgres
 - TypeORM Active Record vs Data Mapper approaches - https://github.com/typeorm/typeorm/blob/master/docs/active-record-data-mapper.md
 - TypeORM repository.delete - not checking if entity exists, repository.remove - checks that entity exists so seems 2 requests - not good.
+- DB Migrations. See config in "app.module.ts"
+"typeorm" script is added to compile .ts into .js while running the migration.
+```bash
+yarn typeorm migration:create -n MigrationName
+yarn typeorm migration:run
+```
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Migrations flow
+- make changes in DB related code - entities
+- build the project (if in watch mode - will be builded automatically, BUT! Rebuild it!!! Deleted items are not cleared while nest build = errors )
+- generate migration: 
+```bash
+yarn typeorm migration:generate -n TasksColumnsRenaming
+```
+- build project once more to build the migrations
+- run migrations
+```bash
+yarn typeorm migration:run
+```
+- revert if needed
+```bash
+yarn typeorm migration:revert
+```
 
 ## Installation
 
 ```bash
-$ npm install
+$ yarn install
 ```
 
 ## Running the app
-
 ```bash
 # development
-$ npm run start
+$ yarn start
 
 # watch mode
-$ npm run start:dev
+$ yarn start:dev
 
 # production mode
-$ npm run start:prod
+$ yarnstart:prod
 ```
 
 ## Test
-
 ```bash
 # unit tests
 $ npm run test
