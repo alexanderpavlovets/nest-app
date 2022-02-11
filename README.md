@@ -40,6 +40,10 @@ yarn typeorm migration:run
 yarn typeorm migration:revert
 ```
 
+## Kafka as a module flow: 
+- GET http:localhost:3000 - this will call "produceHelloIntoKafka" 
+- you should see test.consumer logs the message into the console of server, because it is subscribed with OnModuleInit lifecycle hook
+
 ## Installation
 
 ```bash
@@ -48,6 +52,9 @@ $ yarn install
 
 ## Running the app
 ```bash
+# environment: postgres + kafka
+$ docker-compose up
+
 # development
 $ yarn start
 
