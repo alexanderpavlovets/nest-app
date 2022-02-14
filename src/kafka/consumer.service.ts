@@ -9,6 +9,7 @@ import {
 @Injectable()
 export class ConsumerService implements OnApplicationShutdown {
   private readonly kafka = new Kafka({
+    clientId: 'nest-app',
     brokers: ['localhost:9092'],
   });
   private readonly consumers: Consumer[] = [];

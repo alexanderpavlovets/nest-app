@@ -44,6 +44,13 @@ yarn typeorm migration:revert
 - GET http:localhost:3000 - this will call "produceHelloIntoKafka" 
 - you should see test.consumer logs the message into the console of server, because it is subscribed with OnModuleInit lifecycle hook
 
+## Confluent schema flow:
+- for now, there is no full flow, only first registration of schema (.proto file) when app is up. 
+- run docker-compose.schema.yml docker compose to setup the env. Then run the app - you will see generated schema.
+- Confluent UI is available on http://localhost:9021/
+- "producer.service.ts" is file with schema registration. 
+
+
 ## Installation
 
 ```bash
